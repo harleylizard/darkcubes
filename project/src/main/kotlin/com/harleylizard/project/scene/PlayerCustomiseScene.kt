@@ -3,13 +3,13 @@ package com.harleylizard.project.scene
 import com.harleylizard.project.Window
 import com.harleylizard.project.gl.*
 
-class PlayerEditorScene : Scene {
+class PlayerCustomiseScene : Scene {
 	private val pipeline = ProgramPipeline.build {
 		use(Shader.FRAGMENT, "assets/shader/quad.fsh.glsl")
 		use(Shader.VERTEX, "assets/shader/quad.vsh.glsl")
 	}
 
-	private val quad = Quad()
+	private val quad = MeshQuad()
 
 	override fun draw(window: Window, matrices: MatrixBuffer) {
 		val fovy = Math.toRadians(70.0).toFloat()

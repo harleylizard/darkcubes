@@ -23,7 +23,9 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.114.0+1.21.1")
     modImplementation("net.fabricmc:fabric-language-kotlin:1.13.0+kotlin.2.1.0")
 
-    implementation(project(":project"))
+    implementation(project(":project")) {
+        isTransitive = false
+    }
 }
 
 sourceSets {

@@ -9,7 +9,7 @@ class MatrixBuffer private constructor() {
 
 	private val ubo = glCreateBuffers()
 
-	val last; get() = pose.identity()
+	val last: Matrix4f; get() = pose.identity()
 
 	init {
 		glNamedBufferStorage(ubo, BYTE_SIZE, GL_DYNAMIC_STORAGE_BIT or GL_MAP_READ_BIT or GL_MAP_WRITE_BIT)

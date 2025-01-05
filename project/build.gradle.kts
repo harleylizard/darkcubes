@@ -17,5 +17,4 @@ dependencies {
     implementation("it.unimi.dsi:fastutil:8.5.15")
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("com.google.guava:guava:33.3.1-jre")
-    implementation("commons-cli:commons-cli:1.9.0")
 }

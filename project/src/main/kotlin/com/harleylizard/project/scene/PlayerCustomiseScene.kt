@@ -21,7 +21,7 @@ class PlayerCustomiseScene : Scene {
 		val fovy = Math.toRadians(70.0).toFloat()
 		matrices.perspective(fovy, window.ratio)
 
-		matrices.last.translate(0.0F, 0.0F, -10.0F)
+		matrices.last.translate(0.0F, 0.0F, -7.0F)
 
 		pipeline.bind()
 		matrices.upload()

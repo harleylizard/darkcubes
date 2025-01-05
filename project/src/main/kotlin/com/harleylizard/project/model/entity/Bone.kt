@@ -1,16 +1,9 @@
 package com.harleylizard.project.model.entity
 
 import com.google.gson.JsonDeserializer
-import com.harleylizard.project.model.MeshBuilder
-import com.harleylizard.project.model.Shape
-import org.joml.Matrix4f
-import java.util.Collections
+import java.util.*
 
-class Bone(val cubes: List<Cube>) : Shape {
-
-	override fun build(matrix4f: Matrix4f, builder: MeshBuilder) {
-		cubes
-	}
+class Bone(val cubes: List<Cube>) {
 
 	companion object {
 		val deserializer = JsonDeserializer { json, typeOf, context ->

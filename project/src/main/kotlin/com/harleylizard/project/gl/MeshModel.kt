@@ -1,6 +1,7 @@
 package com.harleylizard.project.gl
 
 import com.harleylizard.project.Resources.readEntityModel
+import com.harleylizard.project.material.Material
 import com.harleylizard.project.model.MeshBuilder
 import org.joml.Matrix4f
 import org.lwjgl.opengl.GL45.*
@@ -17,7 +18,7 @@ class MeshModel {
 			val empty = Matrix4f()
 			val model = "assets/model/entity/player.json".readEntityModel
 
-			model.build(empty, it)
+			model.build(empty, it, Material(64, 64))
 			it.triangulate()
 
 			count = it.count

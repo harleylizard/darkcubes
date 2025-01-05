@@ -1,8 +1,9 @@
 package com.harleylizard.project.model.entity
 
 import com.google.gson.JsonDeserializer
+import com.harleylizard.project.material.Material
+import com.harleylizard.project.model.Buildable
 import com.harleylizard.project.model.MeshBuilder
-import com.harleylizard.project.model.Shape
 import org.joml.Matrix4f
 
 class Cube(
@@ -12,9 +13,9 @@ class Cube(
 	private val toX: Float,
 	private val toY: Float,
 	private val toZ: Float
-) : Shape {
+) : Buildable {
 
-	override fun build(matrix4f: Matrix4f, builder: MeshBuilder) {
+	override fun build(matrix4f: Matrix4f, builder: MeshBuilder, material: Material) {
 		val j = fromX + toX
 		val k = fromY + toY
 		val m = fromZ + toZ

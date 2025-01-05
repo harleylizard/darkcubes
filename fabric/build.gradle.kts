@@ -25,3 +25,9 @@ dependencies {
 
     implementation(project(":project"))
 }
+
+sourceSets {
+    main {
+        resources.srcDir(project(":project").projectDir.resolve("src/main/resources"))
+    }
+}

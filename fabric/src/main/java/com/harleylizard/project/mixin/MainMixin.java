@@ -11,7 +11,7 @@ public final class MainMixin {
 
     @Inject(method = "main", at = @At("HEAD"), cancellable = true, remap = false)
     private static void main(String[] args, CallbackInfo ci) {
-        com.harleylizard.project.client.Main.main(args);
+        com.harleylizard.project.Main.main(args);
         ci.cancel();
     }
 }

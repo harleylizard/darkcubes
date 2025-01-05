@@ -1,7 +1,7 @@
-package com.harleylizard.project.client
+package com.harleylizard.project
 
-import com.harleylizard.project.client.Main.memAddress
-import com.harleylizard.project.client.Main.throwIf
+import com.harleylizard.project.Main.memAddress
+import com.harleylizard.project.Main.throwIf
 import org.lwjgl.glfw.Callbacks.glfwFreeCallbacks
 import org.lwjgl.glfw.GLFW.*
 import org.lwjgl.opengl.GL

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "project",
+  "version": "${version}",
+  "name": "project",
+  "description": "",
+  "authors": [
+    "harleylizard"
+  ],
+  "credits": [],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "arr",
+  "icon": "assets/project/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.harleylizard.project.common.Project"
+    ]
+  },
+  "mixins": [
+    "project.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.22",
+    "minecraft": "~1.21.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

@@ -20,35 +20,35 @@ class Cube(
 		val k = fromY + toY
 		val m = fromZ + toZ
 
-		builder.vertex(matrix4f, j, fromY, fromZ)
-		builder.vertex(matrix4f, fromX, fromY, fromZ)
-		builder.vertex(matrix4f, fromX, k, fromZ)
-		builder.vertex(matrix4f, j, k, fromZ)
+		builder.vertex(matrix4f, j, fromY, fromZ, 0.0F, 0.0F)
+		builder.vertex(matrix4f, fromX, fromY, fromZ, 0.0F, 0.0F)
+		builder.vertex(matrix4f, fromX, k, fromZ, 0.0F, 0.0F)
+		builder.vertex(matrix4f, j, k, fromZ, 0.0F, 0.0F)
 
-		builder.vertex(matrix4f, fromX, fromY, m)
-		builder.vertex(matrix4f, j, fromY, m)
-		builder.vertex(matrix4f, j, k, m)
-		builder.vertex(matrix4f, fromX, k, m)
+		builder.vertex(matrix4f, fromX, fromY, m, 0.0F, 0.0F)
+		builder.vertex(matrix4f, j, fromY, m, 0.0F, 0.0F)
+		builder.vertex(matrix4f, j, k, m, 0.0F, 0.0F)
+		builder.vertex(matrix4f, fromX, k, m, 0.0F, 0.0F)
 
-		builder.vertex(matrix4f, j, fromY, m)
-		builder.vertex(matrix4f, j, fromY, fromZ)
-		builder.vertex(matrix4f, j, k, fromZ)
-		builder.vertex(matrix4f, j, k, m)
+		builder.vertex(matrix4f, j, fromY, m, 0.0F, 0.0F)
+		builder.vertex(matrix4f, j, fromY, fromZ, 0.0F, 0.0F)
+		builder.vertex(matrix4f, j, k, fromZ, 0.0F, 0.0F)
+		builder.vertex(matrix4f, j, k, m, 0.0F, 0.0F)
 
-		builder.vertex(matrix4f, fromX, fromY, fromZ)
-		builder.vertex(matrix4f, fromX, fromY, m)
-		builder.vertex(matrix4f, fromX, k, m)
-		builder.vertex(matrix4f, fromX, k, fromZ)
+		builder.vertex(matrix4f, fromX, fromY, fromZ, 0.0F, 0.0F)
+		builder.vertex(matrix4f, fromX, fromY, m, 0.0F, 0.0F)
+		builder.vertex(matrix4f, fromX, k, m, 0.0F, 0.0F)
+		builder.vertex(matrix4f, fromX, k, fromZ, 0.0F, 0.0F)
 
-		builder.vertex(matrix4f, j, k, fromZ)
-		builder.vertex(matrix4f, fromX, k, fromZ)
-		builder.vertex(matrix4f, fromX, k, m)
-		builder.vertex(matrix4f, j, k, m)
+		builder.vertex(matrix4f, j, k, fromZ, 0.0F, 0.0F)
+		builder.vertex(matrix4f, fromX, k, fromZ, 0.0F, 0.0F)
+		builder.vertex(matrix4f, fromX, k, m, 0.0F, 0.0F)
+		builder.vertex(matrix4f, j, k, m, 0.0F, 0.0F)
 
-		builder.vertex(matrix4f, j, fromY, m)
-		builder.vertex(matrix4f, fromX, fromY, m)
-		builder.vertex(matrix4f, fromX, fromY, fromZ)
-		builder.vertex(matrix4f, j, fromY, fromZ)
+		builder.vertex(matrix4f, j, fromY, m, 0.0F, 0.0F)
+		builder.vertex(matrix4f, fromX, fromY, m, 0.0F, 0.0F)
+		builder.vertex(matrix4f, fromX, fromY, fromZ, 0.0F, 0.0F)
+		builder.vertex(matrix4f, j, fromY, fromZ, 0.0F, 0.0F)
 	}
 
 	companion object {

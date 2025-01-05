@@ -5,12 +5,12 @@ import org.joml.Vector4f
 import org.lwjgl.system.MemoryUtil.*
 import java.nio.ByteBuffer
 
-class MeshBuilder(private val size: Int) {
+class MeshBuilder(private val format: Int) {
 	private var buffer = memCalloc(INITIAL_LENGTH)
 	private var verticesLength = 0
 	private var elementsLength = 0
 
-	private inline val quads; get() = verticesLength * size
+	private inline val quads; get() = verticesLength * format
 
 	val vertices: ByteBuffer; get() = buffer.position(0).limit(verticesLength)
 
@@ -18,10 +18,12 @@ class MeshBuilder(private val size: Int) {
 
 	val count; get() = elementsLength / 4
 
-	fun vertex(matrix4f: Matrix4f, x: Float, y: Float, z: Float) {
-		grow((4 * 4).also { verticesLength += it })
+	fun vertex(matrix4f: Matrix4f, x: Float, y: Float, z: Float, u: Float, v: Float) {
+		grow(format.also { verticesLength += it })
 		val vector4f = matrix4f.transform(Vector4f(x, y, z, 1.0F))
-		buffer.putFloat(vector4f.x).putFloat(vector4f.y).putFloat(vector4f.z).putFloat(1.0F)
+		buffer
+			.putFloat(vector4f.x).putFloat(vector4f.y).putFloat(vector4f.z).putFloat(1.0F)
+			.putFloat(u).putFloat(v)
 	}
 
 	fun triangulate() {

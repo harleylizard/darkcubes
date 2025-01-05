@@ -5,10 +5,11 @@ import com.harleylizard.project.Main.throwIf
 import org.lwjgl.glfw.Callbacks.glfwFreeCallbacks
 import org.lwjgl.glfw.GLFW.*
 import org.lwjgl.opengl.GL
+import org.lwjgl.opengl.GL45.glViewport
 import org.lwjgl.system.MemoryStack
 import org.lwjgl.system.MemoryUtil.NULL
 
-class Window(private val width: Int, private val height: Int) {
+class Window(private var width: Int, private var height: Int) {
 	private val window: Long
 
 	val shouldClose; get() = glfwWindowShouldClose(window)
@@ -40,6 +41,12 @@ class Window(private val width: Int, private val height: Int) {
 
 		glfwMakeContextCurrent(window)
 		GL.createCapabilities()
+
+		glfwSetWindowSizeCallback(window) { window, width, height ->
+			this.width = width
+			this.height = height
+			glViewport(0, 0, width, height)
+		}
 	}
 
 	fun update() {

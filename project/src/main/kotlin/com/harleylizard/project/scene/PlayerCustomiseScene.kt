@@ -1,8 +1,9 @@
 package com.harleylizard.project.scene
 
-import com.harleylizard.project.Resources.readEntityModel
 import com.harleylizard.project.Window
 import com.harleylizard.project.gl.*
+import org.lwjgl.opengl.GL11.GL_CULL_FACE
+import org.lwjgl.opengl.GL11.glEnable
 
 class PlayerCustomiseScene : Scene {
 	private val pipeline = ProgramPipeline.build {
@@ -10,9 +11,11 @@ class PlayerCustomiseScene : Scene {
 		use(Shader.VERTEX, "assets/shader/quad.vsh.glsl")
 	}
 
-	private val quad = MeshQuad()
+	private val quad = MeshModel()
 
-	private val model = "assets/model/entity/player.json".readEntityModel
+	init {
+		glEnable(GL_CULL_FACE)
+	}
 
 	override fun draw(window: Window, matrices: MatrixBuffer) {
 		val fovy = Math.toRadians(70.0).toFloat()

@@ -16,6 +16,8 @@ class MeshBuilder(private val size: Int) {
 
 	val elements: ByteBuffer; get() = buffer.position(verticesLength).limit(verticesLength + elementsLength)
 
+	val count; get() = elementsLength / 4
+
 	fun vertex(matrix4f: Matrix4f, x: Float, y: Float, z: Float) {
 		grow((4 * 4).also { verticesLength += it })
 		val vector4f = matrix4f.transform(Vector4f(x, y, z, 1.0F))
@@ -52,7 +54,7 @@ class MeshBuilder(private val size: Int) {
 	companion object {
 		private const val INITIAL_LENGTH = 16
 
-		inline fun use(size: Int, unit: MeshBuilder.() -> Unit) {
+		inline fun use(size: Int, unit: (MeshBuilder) -> Unit) {
 			MeshBuilder(size).also(unit).also(MeshBuilder::free)
 		}
 	}

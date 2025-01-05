@@ -1,5 +1,6 @@
 package com.harleylizard.project.scene
 
+import com.harleylizard.project.Resources.readEntityModel
 import com.harleylizard.project.Window
 import com.harleylizard.project.gl.*
 
@@ -10,6 +11,8 @@ class PlayerCustomiseScene : Scene {
 	}
 
 	private val quad = MeshQuad()
+
+	private val model = "assets/model/entity/player.json".readEntityModel
 
 	override fun draw(window: Window, matrices: MatrixBuffer) {
 		val fovy = Math.toRadians(70.0).toFloat()

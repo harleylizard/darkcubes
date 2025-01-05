@@ -1,5 +1,6 @@
 package com.harleylizard.project
 
+import com.harleylizard.project.model.entity.EntityModel
 import java.io.*
 import kotlin.jvm.Throws
 
@@ -19,5 +20,10 @@ object Resources {
 			builder.append(line).append("\n")
 		}
 		builder.toString()
+	}
+
+	@get:Throws(IOException::class)
+	val String.readEntityModel; get() = open.asReader.use {
+		EntityModel.gson.fromJson(it, EntityModel::class.java)
 	}
 }

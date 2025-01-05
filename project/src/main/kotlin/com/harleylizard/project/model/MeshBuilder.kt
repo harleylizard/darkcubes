@@ -12,7 +12,7 @@ class MeshBuilder(private val size: Int) {
 
 	private inline val quads; get() = verticesLength * size
 
-	val vertices: ByteBuffer; get() = buffer.limit(verticesLength)
+	val vertices: ByteBuffer; get() = buffer.position(0).limit(verticesLength)
 
 	val elements: ByteBuffer; get() = buffer.position(verticesLength).limit(verticesLength + elementsLength)
 

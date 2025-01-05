@@ -30,6 +30,7 @@ dependencies {
 
 sourceSets {
     main {
+        kotlin.srcDir(project(":project").sourceSets["main"].kotlin)
         resources.srcDir(project(":project").projectDir.resolve("src/main/resources"))
     }
 }

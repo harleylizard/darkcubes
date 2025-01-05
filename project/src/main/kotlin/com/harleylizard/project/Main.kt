@@ -12,6 +12,8 @@ object Main {
 
 	@JvmStatic
 	fun main(args: Array<String>) {
+		val options = Options.parse(args)
+
 		throwIf(::RuntimeException) { !glfwInit() }
 
 		val window = Window(854, 480)

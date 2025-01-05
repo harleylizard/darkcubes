@@ -8,10 +8,12 @@ import org.lwjgl.opengl.GL
 import org.lwjgl.system.MemoryStack
 import org.lwjgl.system.MemoryUtil.NULL
 
-class Window(width: Int, height: Int) {
+class Window(private val width: Int, private val height: Int) {
 	private val window: Long
 
 	val shouldClose; get() = glfwWindowShouldClose(window)
+
+	val ratio; get() = width.toFloat() / height.toFloat()
 
 	init {
 		glfwDefaultWindowHints()

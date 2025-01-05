@@ -1,10 +1,6 @@
 {
   "texture_size": [64, 64],
   "texture": {
-    "color": "",
-    "emission": "",
-    "normal": "",
-    "mask": "",
-    "specular": ""
+    "color": "assets/texture/entity/player.png"
   }
 }

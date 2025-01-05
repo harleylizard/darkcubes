@@ -1,25 +1,24 @@
 package com.harleylizard.project.model.entity
 
 import com.google.gson.JsonDeserializer
-import com.harleylizard.project.material.Material
-import com.harleylizard.project.model.Buildable
 import com.harleylizard.project.model.MeshBuilder
 import org.joml.Matrix4f
 
 class Cube(
-	private val fromX: Float,
-	private val fromY: Float,
-	private val fromZ: Float,
-	private val toX: Float,
-	private val toY: Float,
-	private val toZ: Float
+	val fromX: Float,
+	val fromY: Float,
+	val fromZ: Float,
+	val toX: Float,
+	val toY: Float,
+	val toZ: Float
 ) : Buildable {
 
-	override fun build(matrix4f: Matrix4f, builder: MeshBuilder, material: Material) {
+	override fun build(matrix4f: Matrix4f, builder: MeshBuilder, size: FlatSize) {
 		val j = fromX + toX
 		val k = fromY + toY
 		val m = fromZ + toZ
 
+		var (min0, max0, min1, max1) = size.move(size.northFace(this), 0, 0)
 		builder.vertex(matrix4f, j, fromY, fromZ, 0.0F, 0.0F)
 		builder.vertex(matrix4f, fromX, fromY, fromZ, 0.0F, 0.0F)
 		builder.vertex(matrix4f, fromX, k, fromZ, 0.0F, 0.0F)

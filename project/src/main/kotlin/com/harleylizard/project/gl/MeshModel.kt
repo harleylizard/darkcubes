@@ -17,7 +17,7 @@ class MeshModel {
 		val format = (4 + 2) * 4
 		MeshBuilder.use(format) {
 			val empty = Matrix4f()
-			val model = "assets/model/entity/player.json".readEntityModel
+			val model = "assets/model/entity/player_wide_arms.json".readEntityModel
 
 			model.build(empty, it, Material(64, 64))
 			it.triangulate()

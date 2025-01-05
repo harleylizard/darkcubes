@@ -2,16 +2,14 @@ package com.harleylizard.project.model.entity
 
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonDeserializer
-import com.harleylizard.project.material.Material
-import com.harleylizard.project.model.Buildable
 import com.harleylizard.project.model.MeshBuilder
 import org.joml.Matrix4f
 import java.util.*
 
 class EntityModel(private val bones: Map<String, Bone>) : Buildable {
 
-	override fun build(matrix4f: Matrix4f, builder: MeshBuilder, material: Material) {
-		bones.values.flatMap(Bone::cubes).forEach { it.build(matrix4f, builder, material) }
+	override fun build(matrix4f: Matrix4f, builder: MeshBuilder, size: FlatSize) {
+		bones.values.flatMap(Bone::cubes).forEach { it.build(matrix4f, builder, size) }
 	}
 
 	companion object {

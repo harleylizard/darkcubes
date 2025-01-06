@@ -2,6 +2,8 @@ package com.harleylizard.project
 
 import com.harleylizard.project.Main.memAddress
 import com.harleylizard.project.Main.throwIf
+import com.harleylizard.project.input.Keys
+import com.harleylizard.project.input.Mouse
 import org.lwjgl.glfw.Callbacks.glfwFreeCallbacks
 import org.lwjgl.glfw.GLFW.*
 import org.lwjgl.opengl.GL
@@ -11,6 +13,7 @@ import org.lwjgl.system.MemoryUtil.NULL
 
 class Window(private var width: Int, private var height: Int) {
 	val mouse = Mouse()
+	val keys = Keys()
 
 	private val window: Long
 
@@ -53,6 +56,12 @@ class Window(private var width: Int, private var height: Int) {
 		glfwSetCursorPosCallback(window) { window, x, y ->
 			mouse.cursorX = x
 			mouse.cursorY = y
+		}
+		glfwSetMouseButtonCallback(window) { window, button, action, mods ->
+			keys.set(button, action != GLFW_RELEASE)
+		}
+		glfwSetKeyCallback(window) { window, key, scancode, action, mods ->
+			keys.set(key, action != GLFW_RELEASE)
 		}
 	}
 

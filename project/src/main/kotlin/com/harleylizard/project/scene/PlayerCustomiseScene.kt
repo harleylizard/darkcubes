@@ -3,6 +3,7 @@ package com.harleylizard.project.scene
 import com.harleylizard.project.Window
 import com.harleylizard.project.gl.*
 import com.harleylizard.project.gl.Texture.asTexture
+import org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_RIGHT
 import org.lwjgl.opengl.GL45.*
 
 class PlayerCustomiseScene : Scene {
@@ -22,10 +23,13 @@ class PlayerCustomiseScene : Scene {
 	}
 
 	override fun draw(window: Window, matrices: MatrixBuffer) {
+		val keys = window.keys
 		val mouse = window.mouse
 		mouse.step(0.01)
-		yaw += mouse.deltaX
-		pitch += mouse.deltaY
+		if (keys.isHeld(GLFW_MOUSE_BUTTON_RIGHT)) {
+			yaw += mouse.deltaX
+			pitch += mouse.deltaY
+		}
 
 		val fovy = Math.toRadians(70.0).toFloat()
 		matrices.perspective(fovy, window.ratio)

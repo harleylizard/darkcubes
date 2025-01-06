@@ -1,4 +1,4 @@
-package com.harleylizard.project
+package com.harleylizard.project.input
 
 class Mouse {
 	private var previousX = 0.0

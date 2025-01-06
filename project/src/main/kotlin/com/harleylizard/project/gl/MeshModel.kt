@@ -1,9 +1,8 @@
 package com.harleylizard.project.gl
 
 import com.harleylizard.project.Resources.readEntityModel
-import com.harleylizard.project.material.Material
 import com.harleylizard.project.model.MeshBuilder
-import com.harleylizard.project.model.entity.FlatSize
+import com.harleylizard.project.model.entity.TextureSize
 import org.joml.Matrix4f
 import org.lwjgl.opengl.GL45.*
 
@@ -20,7 +19,7 @@ class MeshModel {
 			val empty = Matrix4f()
 			val model = "assets/model/entity/player_wide_arms.json".readEntityModel
 
-			model.build(empty, it, FlatSize(64, 64))
+			model.build(empty, it, TextureSize(64, 64))
 			it.triangulate()
 
 			count = it.count

@@ -1,10 +1,10 @@
 package com.harleylizard.project.model.entity
 
 data class Face(
-	val min0: Float,
-	val max0: Float,
-	val min1: Float,
-	val max1: Float) {
+	val minU: Float,
+	val minV: Float,
+	val maxU: Float,
+	val maxV: Float) {
 
-	fun move(x: Float, y: Float) = Face(min0 + x, max0 + y, min1 + x, max1 + y)
+	fun move(x: Float, y: Float) = Face(minU + x, minV + y, maxU + x, maxV + y)
 }

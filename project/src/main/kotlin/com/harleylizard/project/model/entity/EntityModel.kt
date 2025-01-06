@@ -8,7 +8,7 @@ import java.util.*
 
 class EntityModel(private val bones: Map<String, Bone>) : Buildable {
 
-	override fun build(matrix4f: Matrix4f, builder: MeshBuilder, size: FlatSize) {
+	override fun build(matrix4f: Matrix4f, builder: MeshBuilder, size: TextureSize) {
 		bones.values.flatMap(Bone::cubes).forEach { it.build(matrix4f, builder, size) }
 	}
 

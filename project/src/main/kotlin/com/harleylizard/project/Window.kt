@@ -28,7 +28,7 @@ class Window(private var width: Int, private var height: Int) {
 		glfwWindowHint(GLFW_CONTEXT_RELEASE_BEHAVIOR, GLFW_RELEASE_BEHAVIOR_FLUSH)
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE)
 
-		glfwCreateWindow(width, height, "Project", NULL, NULL).also { window = it }.throwIf(::RuntimeException) { it == NULL }
+		glfwCreateWindow(width, height, "Darkcubes", NULL, NULL).also { window = it }.throwIf(::RuntimeException) { it == NULL }
 		MemoryStack.stackPush().use {
 			val buffer = it.callocInt(6)
 

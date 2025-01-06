@@ -1,7 +1,7 @@
 package com.harleylizard.project
 
 import com.harleylizard.project.gl.MatrixBuffer
-import com.harleylizard.project.scene.PlayerCustomiseScene
+import com.harleylizard.project.scene.CustomizerScene
 import org.lwjgl.glfw.GLFW.glfwInit
 import org.lwjgl.glfw.GLFW.glfwTerminate
 import org.lwjgl.opengl.GL11.*
@@ -18,7 +18,7 @@ object Main {
 
 		val window = Window(854, 480)
 
-		val scene = PlayerCustomiseScene()
+		val scene = CustomizerScene()
 		val matrices = MatrixBuffer.of()
 
 		glClearColor(0.0F, 0.75F, 0.75F, 0.0F)

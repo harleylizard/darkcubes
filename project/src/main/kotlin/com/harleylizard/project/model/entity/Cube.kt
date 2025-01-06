@@ -5,12 +5,12 @@ import com.harleylizard.project.model.MeshBuilder
 import org.joml.Matrix4f
 
 class Cube(
-	val fromX: Float,
-	val fromY: Float,
-	val fromZ: Float,
-	val toX: Float,
-	val toY: Float,
-	val toZ: Float,
+	private val fromX: Float,
+	private val fromY: Float,
+	private val fromZ: Float,
+	private val toX: Float,
+	private val toY: Float,
+	private val toZ: Float,
 	private val u: Int,
 	private val v: Int
 ) : Buildable {

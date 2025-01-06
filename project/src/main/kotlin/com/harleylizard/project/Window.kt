@@ -10,6 +10,8 @@ import org.lwjgl.system.MemoryStack
 import org.lwjgl.system.MemoryUtil.NULL
 
 class Window(private var width: Int, private var height: Int) {
+	val mouse = Mouse()
+
 	private val window: Long
 
 	val shouldClose; get() = glfwWindowShouldClose(window)
@@ -46,6 +48,11 @@ class Window(private var width: Int, private var height: Int) {
 			this.width = width
 			this.height = height
 			glViewport(0, 0, width, height)
+		}
+
+		glfwSetCursorPosCallback(window) { window, x, y ->
+			mouse.cursorX = x
+			mouse.cursorY = y
 		}
 	}
 

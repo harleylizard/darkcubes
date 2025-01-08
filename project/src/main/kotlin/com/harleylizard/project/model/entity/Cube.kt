@@ -13,14 +13,13 @@ class Cube(
 	private val toZ: Float,
 	private val u: Int,
 	private val v: Int
-) : Buildable {
+) {
 
-	override fun build(matrix4f: Matrix4f, builder: MeshBuilder, size: TextureSize) {
+	fun build(matrix4f: Matrix4f, builder: MeshBuilder, width: Int, height: Int) {
 		val j = fromX + toX
 		val k = fromY + toY
 		val m = fromZ + toZ
 
-		val (width, height) = size
 		val m00 = ((j - fromX) * 16.0F) / width
 		val m01 = ((m - fromZ) * 16.0F) / width
 		val m10 = ((k - fromY) * 16.0F) / height
@@ -28,11 +27,11 @@ class Cube(
 		val l = u.toFloat() / width
 		val n = v.toFloat() / height
 
-		var uvs = Face(0.0F, 1.0F, 0.0F, 1.0F)
-		builder.vertex(matrix4f, j, fromY, fromZ, 0.0F, 0.0F)
-		builder.vertex(matrix4f, fromX, fromY, fromZ, 0.0F, 0.0F)
-		builder.vertex(matrix4f, fromX, k, fromZ, 0.0F, 0.0F)
-		builder.vertex(matrix4f, j, k, fromZ, 0.0F, 0.0F)
+		var uvs = Face(m01, m11, m01 + m00, m11 + m10).move(l, n)
+		builder.vertex(matrix4f, j, fromY, fromZ, uvs.minU, uvs.maxV)
+		builder.vertex(matrix4f, fromX, fromY, fromZ, uvs.maxU, uvs.maxV)
+		builder.vertex(matrix4f, fromX, k, fromZ, uvs.maxU, uvs.minV)
+		builder.vertex(matrix4f, j, k, fromZ, uvs.minU, uvs.minV)
 
 		uvs = Face(m01 + m00 + m01, m11, m01 + m00 + m01 + m00, m11 + m10).move(l, n)
 		builder.vertex(matrix4f, fromX, fromY, m, uvs.minU, uvs.maxV)

@@ -1,6 +1,9 @@
 {
-  "texture_size": [64, 64],
-  "texture": {
+  "textures": {
     "color": "assets/texture/entity/player.png"
+  },
+  "texture_size": {
+    "width": 64,
+    "height": 64
   }
 }

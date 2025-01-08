@@ -1,4 +1,8 @@
 {
+  "texture_size": {
+    "width": 64,
+    "height": 64
+  },
   "bones": {
     "head": {
       "cubes": [
